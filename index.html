@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Empowerment for Women</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-md mx-auto mt-12 p-6 rounded-lg shadow-md bg-white">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Financial Empowerment for Women</h2>
+            <span class="text-gray-600">Take control of your finances</span>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Learn</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Tools</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Invest</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ai-tab" data-bs-toggle="tab" data-bs-target="#ai" type="button" role="tab" aria-controls="ai" aria-selected="false">AI Insights</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="game-tab" data-bs-toggle="tab" data-bs-target="#game" type="button" role="tab" aria-controls="game" aria-selected="false">Gamified Learning</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Budgeting
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Learn how to create a budget that works for you.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#budgetModal">Take the course</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Expense Tracking
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Learn how to track your expenses and stay on top of your finances.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#expenseModal">Take the course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">SIP Calculator</h5>
+                                <p class="card-text">Calculate your SIP returns.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sipModal">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">EMI Calculator</h5>
+                                <p class="card-text">Calculate your EMI.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#emiModal">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Investment Portfolio Tracker</h5>
+                        <p class="card-text">Track your investments and stay on top of your portfolio.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#portfolioModal">Track</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ai" role="tabpanel" aria-labelledby="ai-tab">
+                <h2 class="text-2xl font-bold">AI-Powered Insights</h2>
+                <p>Get personalized financial recommendations and predictions based on your input.</p>
+                <form id="aiForm">
+                    <div class="mb-3">
+                        <label for="aiAmount" class="form-label">Enter your income</label>
+                        <input type="number" class="form-control" id="aiAmount" aria-describedby="aiAmountHelp">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Get Insights</button>
+                </form>
+                <div id="aiResult"></div>
+            </div>
+            <div class="tab-pane fade" id="game" role="tabpanel" aria-labelledby="game-tab">
+                <h2 class="text-2xl font-bold">Gamified Learning</h2>
+                <p>Learn about personal finance through interactive games and quizzes.</p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#gameModal">Start Quiz</button>
+            </div>
+        </div>
+        <!-- Modals -->
+        <div class="modal fade" id="budgetModal" tabindex="-1" aria-labelledby="budgetModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="budgetModalLabel">Budgeting Course</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Learn how to create a budget that works for you.</p>
+                        <!-- YouTube Video Embed -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0nIYI_0_Ovw" allowfullscreen></iframe>
+                        </div>
+                        <button class="btn btn-primary mt-3">Start the course</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="expenseModal" tabindex="-1" aria-labelledby="expenseModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="expenseModalLabel">Expense Tracking Course</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Learn how to track your expenses and stay on top of your finances.</p>
+                        <!-- YouTube Video Embed -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VIDEO_ID_HERE" allowfullscreen></iframe>
+                        </div>
+                        <button class="btn btn-primary mt-3">Start the course</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="sipModal" tabindex="-1" aria-labelledby="sipModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sipModalLabel">SIP Calculator</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="sipForm">
+                            <div class="mb-3">
+                                <label for="sipAmount" class="form-label">SIP Amount</label>
+                                <input type="number" class="form-control" id="sipAmount" aria-describedby="sipAmountHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="sipDuration" class="form-label">SIP Duration</label>
+                                <input type="number" class="form-control" id="sipDuration" aria-describedby="sipDurationHelp">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </form>
+                        <div id="sipResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="emiModal" tabindex="-1" aria-labelledby="emiModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="emiModalLabel">EMI Calculator</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="emiForm">
+                            <div class="mb-3">
+                                <label for="emiAmount" class="form-label">EMI Amount</label>
+                                <input type="number" class="form-control" id="emiAmount" aria-describedby="emiAmountHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emiDuration" class="form-label">EMI Duration</label>
+                                <input type="number" class="form-control" id="emiDuration" aria-describedby="emiDurationHelp">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </form>
+                        <div id="emiResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="portfolioModalLabel">Investment Portfolio Tracker</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Track your investments and stay on top of your portfolio.</p>
+                        <button class="btn btn-primary">Start tracking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="gameModalLabel">Quiz Time!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="quizContainer">
+                            <!-- Quiz questions will be dynamically inserted here -->
+                        </div>
+                        <div id="quizResult" class="mt-3"></div>
+                        <button id="nextQuestion" class="btn btn-primary mt-3" style="display: none;">Next Question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the first step in creating a budget?",
+                options: ["Track your expenses", "Set financial goals", "Invest in stocks", "Spend freely"],
+                correctAnswer: "Set financial goals"
+            },
+            {
+                question: "What does SIP stand for in finance?",
+                options: ["Systematic Investment Plan", "Savings Investment Plan", "Stock Investment Plan", "Secure Investment Plan"],
+                correctAnswer: "Systematic Investment Plan"
+            },
+            {
+                question: "Which of the following is NOT a good financial habit?",
+                options: ["Saving regularly", "Tracking expenses", "Taking on unnecessary debt", "Investing for the future"],
+                correctAnswer: "Taking on unnecessary debt"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Function to display the current question
+        function displayQuestion() {
+            const quizContainer = document.getElementById("quizContainer");
+            const quizResult = document.getElementById("quizResult");
+            const nextQuestionButton = document.getElementById("nextQuestion");
+
+            if (currentQuestionIndex < quizData.length) {
+                const currentQuestion = quizData[currentQuestionIndex];
+                quizContainer.innerHTML = `
+                    <h4 class="font-bold">${currentQuestion.question}</h4>
+                    <ul class="list-group mt-3">
+                        ${currentQuestion.options.map((option, index) => `
+                            <li class="list-group-item">
+                                <input type="radio" name="quizOption" value="${option}" id="option${index}">
+                                <label for="option${index}">${option}</label>
+                            </li>
+                        `).join("")}
+                    </ul>
+                `;
+                quizResult.innerHTML = "";
+                nextQuestionButton.style.display = "none";
+            } else {
+                // Quiz is over
+                quizContainer.innerHTML = `<h4 class="font-bold">Quiz Completed!</h4>`;
+                quizResult.innerHTML = `<p class="text-green-600">Your score: ${score} out of ${quizData.length}</p>`;
+                nextQuestionButton.style.display = "none";
+            }
+        }
+
+        // Function to check the answer
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="quizOption"]:checked');
+            if (selectedOption) {
+                const userAnswer = selectedOption.value;
+                const correctAnswer = quizData[currentQuestionIndex].correctAnswer;
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    document.getElementById("quizResult").innerHTML = `<p class="text-green-600">Correct! 🎉</p>`;
+                } else {
+                    document.getElementById("quizResult").innerHTML = `<p class="text-red-600">Incorrect. The correct answer is: ${correctAnswer}</p>`;
+                }
+
+                currentQuestionIndex++;
+                document.getElementById("nextQuestion").style.display = "block";
+            } else {
+                alert("Please select an option!");
+            }
+        }
+
+        // Event listener for the "Next Question" button
+        document.getElementById("nextQuestion").addEventListener("click", () => {
+            displayQuestion();
+        });
+
+        // Event listener for the "Start Quiz" button
+        document.getElementById("quizButton").addEventListener("click", () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            displayQuestion();
+        });
+
+       // Event listener for the modal close event
+        document.getElementById("gameModal").addEventListener("hidden.bs.modal", () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("quizContainer").innerHTML = "";
+            document.getElementById("quizResult").innerHTML = "";
+        });
+
+        // Event listener for the "Submit Answer" button
+        document.getElementById("quizContainer").addEventListener("change", () => {
+            checkAnswer();
+        });
+    </script>
+</body>
+</html>
